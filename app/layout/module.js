@@ -1,7 +1,4 @@
-"use strict";
-
 import angular from 'angular';
-
 const MODULE_NAME = 'app.layout';
 
 const app = angular.module(MODULE_NAME, [])

@@ -28,6 +28,7 @@ import graphs from './graphs/module';
 import widgets from './widgets/module';
 import inbox from './inbox/module';
 import appView from './app-views/module';
+import tables from './tables/module';
 
 angular.module('app', [
     //'ngSanitize',
@@ -48,9 +49,9 @@ angular.module('app', [
     graphs,
     widgets,
     inbox,
-    appView
+    appView,
+    tables
     //'app.chat',
-    //'app.tables',
     //'app.forms',
     //'app.ui',
     //'app.maps',
