@@ -26,6 +26,7 @@ import layout from './layout/module';
 import calendar from './calendar/module';
 import graphs from './graphs/module';
 import widgets from './widgets/module';
+import inbox from './inbox/module';
 
 angular.module('app', [
     //'ngSanitize',
@@ -45,12 +46,11 @@ angular.module('app', [
     dashboard,
     graphs,
     widgets,
+    inbox,
     //'app.chat',
-    //'app.inbox',
     //'app.tables',
     //'app.forms',
     //'app.ui',
-    //'app.widgets',
     //'app.maps',
     //'app.appViews',
     //'app.misc',
