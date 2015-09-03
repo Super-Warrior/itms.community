@@ -1,16 +1,20 @@
 'use strict';
 
-angular.module('app.ui').directive('smartJquiAutocomplete', function () {
-    return {
-        restrict: 'A',
-        scope: {
-            'source': '='
-        },
-        link: function (scope, element, attributes) {
+export default (app) => {
 
-            element.autocomplete({
-                source: scope.source
-            });
-        }
+  app.directive('smartJquiAutocomplete', function () {
+    return {
+      restrict: 'A',
+      scope: {
+        'source': '='
+      },
+      link: function (scope, element, attributes) {
+
+        element.autocomplete({
+          source: scope.source
+        });
+      }
     }
-});
+  });
+
+}

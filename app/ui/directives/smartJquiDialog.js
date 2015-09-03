@@ -14,50 +14,51 @@ $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
     }
 }));
 
-
-angular.module('app.ui').directive('smartJquiDialog', function () {
+export default (app) => {
+  app.directive('smartJquiDialog', function () {
 
     var optionAttributes = ['autoOpen', 'modal', 'width', 'resizable'];
 
     var defaults = {
-        width: Math.min($(window).width() * .7, 600),
-        autoOpen: false,
-        resizable: false
+      width: Math.min($(window).width() * .7, 600),
+      autoOpen: false,
+      resizable: false
     };
 
 
     return {
-        restrict: 'A',
-        link: function (scope, element, attributes) {
+      restrict: 'A',
+      link: function (scope, element, attributes) {
 
-            var title = element.find('[data-dialog-title]').remove().html();
+        var title = element.find('[data-dialog-title]').remove().html();
 
-            var options = _.clone(defaults);
+        var options = _.clone(defaults);
 
-            optionAttributes.forEach(function (option) {
-                if (element.data(option)) {
-                    options[option] = element.data(option);
-                }
-            });
+        optionAttributes.forEach(function (option) {
+          if (element.data(option)) {
+            options[option] = element.data(option);
+          }
+        });
 
-            var buttons = element.find('[data-dialog-buttons]').remove()
-                .find('button').map(function (idx, button) {
-                    return {
-                        class: button.className,
-                        html: button.innerHTML,
-                        click: function () {
-                            if ($(button).data('action'))
-                                scope.$eval($(button).data('action'));
-                            element.dialog("close");
-                        }
-                    }
-                });
+        var buttons = element.find('[data-dialog-buttons]').remove()
+        .find('button').map(function (idx, button) {
+          return {
+            class: button.className,
+            html: button.innerHTML,
+            click: function () {
+              if ($(button).data('action'))
+                scope.$eval($(button).data('action'));
+              element.dialog("close");
+            }
+          }
+        });
 
-            element.dialog(_.extend({
-                title: title,
-                buttons: buttons
-            }, options));
+        element.dialog(_.extend({
+          title: title,
+          buttons: buttons
+        }, options));
 
-        }
+      }
     }
-});
+  });
+}

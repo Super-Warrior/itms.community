@@ -31,6 +31,8 @@ import appView from './app-views/module';
 import tables from './tables/module';
 import forms from './forms/module';
 import misc from './misc/module';
+import admin from './smart-admin/module';
+import ui from './ui/module';
 
 angular.module('app', [
   //'ngSanitize',
@@ -54,14 +56,13 @@ angular.module('app', [
   appView,
   tables,
   forms,
-  misc
+  misc,
+  admin,
+  ui
   //'app.chat',
-  //'app.ui',
   //'app.maps',
-  //'app.smartAdmin'
 ])
 .config(function ($provide, $httpProvider) {
-
 
   // Intercept http calls.
   $provide.factory('ErrorHttpInterceptor', function ($q) {

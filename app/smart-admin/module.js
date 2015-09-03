@@ -1,10 +1,10 @@
-"use strict";
+import angular from 'angular';
+const MODULE_NAME = 'app.smartAdmin';
 
+export default MODULE_NAME;
 
-angular.module('app.smartAdmin', ['ui.router']);
-
-
-angular.module('app.smartAdmin').config(function ($stateProvider) {
+const app = angular.module(MODULE_NAME, [])
+.config(function ($stateProvider) {
 
   $stateProvider
   .state('app.smartAdmin', {
@@ -21,7 +21,7 @@ angular.module('app.smartAdmin').config(function ($stateProvider) {
     },
     views: {
       "content@app": {
-        templateUrl: 'app/smart-admin/views/app-layout.html'
+        template: require('./views/app-layout.html')
       }
     }
   })
@@ -33,8 +33,9 @@ angular.module('app.smartAdmin').config(function ($stateProvider) {
     },
     views: {
       "content@app": {
-        templateUrl: 'app/smart-admin/views/different-versions.html'
+        template: require('./views/different-versions.html')
       }
     }
   })
 });
+

@@ -3,7 +3,7 @@ const MODULE_NAME = 'app.tables';
 
 export default MODULE_NAME;
 
-const app = angular.module('app.tables', [])
+const app = angular.module(MODULE_NAME, [])
 .config(function ($stateProvider) {
   $stateProvider
   .state('app.tables', {

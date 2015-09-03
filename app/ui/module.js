@@ -1,8 +1,10 @@
-'use strict'
+import angular from 'angular';
+const MODULE_NAME = 'app.ui';
 
-angular.module('app.ui', ['ui.router']);
+export default MODULE_NAME;
 
-angular.module('app.ui').config(function($stateProvider){
+const app = angular.module('app.ui', [])
+.config(function($stateProvider){
 
   $stateProvider
   .state('app.ui', {
@@ -18,7 +20,7 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/general-elements.html',
+        template: require('./views/general-elements.html'),
         controller: 'GeneralElementsCtrl'
       }
     }
@@ -30,7 +32,7 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/buttons.html',
+        template: require('./views/buttons.html'),
         controller: 'GeneralElementsCtrl'
       }
     }
@@ -42,7 +44,7 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/icons-fa.html'
+        template: require('./views/icons-fa.html')
       }
     }
   })
@@ -53,7 +55,7 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/icons-glyph.html'
+        template: require('./views/icons-glyph.html')
       }
     }
   })
@@ -64,7 +66,7 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/icons-flags.html'
+        template: require('./views/icons-flags.html')
       }
     }
   })
@@ -75,7 +77,7 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/grid.html'
+        template: require('./views/grid.html')
       }
     }
   })
@@ -86,7 +88,7 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/tree-view.html',
+        template: require('./views/tree-view.html'),
         controller: 'TreeviewCtrl'
       }
     }
@@ -98,7 +100,7 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/nestable-lists.html'
+        template: require('./views/nestable-lists.html')
       }
     },
     resolve: {
@@ -117,7 +119,7 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/jquery-ui.html',
+        template: require('./views/jquery-ui.html'),
         controller: 'JquiCtrl'
       }
     },
@@ -126,7 +128,6 @@ angular.module('app.ui').config(function($stateProvider){
         return lazyScript.register([
           'bootstrap-slider'
         ])
-
       }
     }
   })
@@ -137,8 +138,28 @@ angular.module('app.ui').config(function($stateProvider){
     },
     views: {
       "content@app": {
-        templateUrl: 'app/ui/views/typography.html'
+        template: require('./views/typography.html')
       }
     }
   })
 });
+
+require('./controllers/GeneralElementsCtrl')(app);
+require('./controllers/JquiCtrl')(app);
+require('./controllers/TreeviewCtrl')(app);
+
+require('./directives/smartClassFilter');
+require('./directives/smartHtmlPopover');
+require('./directives/smartJquiAccordion');
+require('./directives/smartJquiAjaxAutocomplete');
+require('./directives/smartJquiDialog');
+require('./directives/smartJquiDialogLauncher');
+require('./directives/smartJquiDynamicTabs');
+require('./directives/smartJquiMenu');
+require('./directives/smartJquiTabs');
+require('./directives/smartNestable');
+require('./directives/smartProgressbar');
+require('./directives/smartRideCarousel');
+require('./directives/smartSuperBox');
+require('./directives/smartTreeview');
+
