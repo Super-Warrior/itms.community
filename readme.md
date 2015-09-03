@@ -15,3 +15,5 @@ run
 ```
 npm run dev
 ```
+
+visit `localhost:8080`
