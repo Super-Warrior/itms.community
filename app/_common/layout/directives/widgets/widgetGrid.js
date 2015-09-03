@@ -1,5 +1,7 @@
 "use strict";
 
+import angular from 'angular';
+
 export default (app) => {
   app.directive('widgetGrid', function ($rootScope, $compile, $q, $state, $timeout) {
 
@@ -119,7 +121,7 @@ export default (app) => {
     var initDropdowns = function (widgetIds) {
       angular.forEach(widgetIds, function (wid) {
         $('#' + wid + ' [data-toggle="dropdown"]').each(function () {
-          var $parent = $(this).parent();
+          var $parent = angular.element(this).parent();
           // $(this).removeAttr('data-toggle');
           if (!$parent.attr('dropdown')) {
             $(this).removeAttr('href');
