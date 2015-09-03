@@ -39,4 +39,7 @@ require('./todo/TodoCtrl')(app);
 require('./todo/models/Todo')(app);
 require('./todo/directives/todoList')(app);
 
+require('./projects/recentProjects')(app);
+require('./projects/Project')(app);
+
 export default MODULE_NAME;

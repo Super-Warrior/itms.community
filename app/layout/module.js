@@ -24,7 +24,10 @@ const app = angular.module(MODULE_NAME, [])
     }
   });
   $urlRouterProvider.otherwise('/dashboard');
+});
 
-})
+require('./language/language-controller')(app);
+require('./language/Language')(app);
+require('./language/languageSelector')(app);
 
 export default MODULE_NAME;

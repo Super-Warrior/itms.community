@@ -9,21 +9,23 @@
  * Main module of the application.
  */
 
-import appConfig from '../app.config';
 import angular from 'angular';
 import ngAnimate from 'angular-animate';
 import ngResource from 'angular-resource';
-import 'imports?angular!restangular/src/restangular';
+import 'imports?angular!restangular';
 import 'angular-bootstrap';
 import uirouter from 'angular-ui-router';
+import 'jquery-ui/sortable';
+import 'jquery-ui/tooltip';
+
+import appConfig from '../app.config';
 import SmartAdmin from './_common/module';
 import auth from './auth/module';
 import dashboard from './dashboard/module';
 import layout from './layout/module';
 import calendar from './calendar/module';
 import graphs from './graphs/module';
-import 'jquery-ui/sortable';
-import 'jquery-ui/tooltip';
+import widgets from './widgets/module';
 
 angular.module('app', [
     //'ngSanitize',
@@ -41,7 +43,8 @@ angular.module('app', [
     layout,
     calendar,
     dashboard,
-    graphs
+    graphs,
+    widgets,
     //'app.chat',
     //'app.inbox',
     //'app.tables',

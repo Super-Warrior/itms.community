@@ -5,7 +5,16 @@ module.exports = {
   context: path.resolve('app'),
   entry: {
     app: './main',
-    vendor: ['angular']
+    vendor: [
+      'angular', 
+      'restangular',
+      'jquery-ui',
+      'jquery',
+      'angular-bootstrap',
+      'angular-resource',
+      'angular-animate',
+      'angular-ui-router'
+    ]
   },
   output: {
     path: path.resolve('dist'),

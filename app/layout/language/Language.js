@@ -1,44 +1,36 @@
 "use strict";
 
-angular.module('app').factory('Language', function($http, APP_CONFIG){
+export default (app) => {
 
-	function getLanguage(key, callback) {
+  app.factory('Language', function($http, APP_CONFIG){
 
-		$http.get(APP_CONFIG.apiRootUrl + '/langs/' + key + '.json').success(function(data){
+    function getLanguage(key, callback) {
 
-			callback(data);
-			
-		}).error(function(){
+      $http.get(APP_CONFIG.apiRootUrl + '/langs/' + key + '.json').success(function(data){
+        callback(data);
+      }).error(function(){
+        $log.log('Error');
+        callback([]);
+      });
+    }
 
-			$log.log('Error');
-			callback([]);
+    function getLanguages(callback) {
+      $http.get(APP_CONFIG.apiRootUrl + '/languages.json').success(function(data){
+        callback(data);
+      }).error(function(){
+        $log.log('Error');
+        callback([]);
+      });
+    }
 
-		});
+    return {
+      getLang: function(type, callback) {
+        getLanguage(type, callback);
+      },
+      getLanguages:function(callback){
+        getLanguages(callback);
+      }
+    }
+  });
+}
 
-	}
-
-	function getLanguages(callback) {
-
-		$http.get(APP_CONFIG.apiRootUrl + '/languages.json').success(function(data){
-
-			callback(data);
-			
-		}).error(function(){
-
-			$log.log('Error');
-			callback([]);
-
-		});
-
-	}
-
-	return {
-		getLang: function(type, callback) {
-			getLanguage(type, callback);
-		},
-		getLanguages:function(callback){
-			getLanguages(callback);
-		}
-	}
-
-});

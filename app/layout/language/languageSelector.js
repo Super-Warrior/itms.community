@@ -1,10 +1,13 @@
-"use strict";
 
-angular.module('app').directive('languageSelector', function(Language){
+export default (app) => {
+  app.directive('languageSelector', function() {
     return {
-        restrict: "EA",
-        replace: true,
-        templateUrl: "app/layout/language/language-selector.tpl.html",
-        scope: true
+      restrict: "EA",
+      replace: true,
+      template: require('./language-selector.tpl.html'),
+      scope: true
     }
-});
+  });
+
+}
+
