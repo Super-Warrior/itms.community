@@ -30,6 +30,7 @@ import inbox from './inbox/module';
 import appView from './app-views/module';
 import tables from './tables/module';
 import forms from './forms/module';
+import misc from './misc/module';
 
 angular.module('app', [
   //'ngSanitize',
@@ -52,11 +53,11 @@ angular.module('app', [
   inbox,
   appView,
   tables,
-  forms
+  forms,
+  misc
   //'app.chat',
   //'app.ui',
   //'app.maps',
-  //'app.misc',
   //'app.smartAdmin'
 ])
 .config(function ($provide, $httpProvider) {
