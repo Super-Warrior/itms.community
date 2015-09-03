@@ -1,8 +1,5 @@
-'use strict';
 
-
-
-var appConfig = window.appConfig || {};
+const appConfig = {};
 
 appConfig.menu_speed = 200;
 
@@ -258,7 +255,8 @@ if (appConfig.voice_command) {
 
 appConfig.apiRootUrl = '/api';
 
-window.appConfig = appConfig;
+export default appConfig;
+
 
 /*
 * END APP.appConfig

@@ -1,24 +1,27 @@
+import angular from 'angular';
 
+const MODULE_NAME = 'app.calendar';
 
-"use strict";
-
-
-angular
-.module('app.calendar', ['ngResource','ui.router'])
+const app = angular.module(MODULE_NAME, []) 
 .config(function ($stateProvider) {
-
-    $stateProvider
-        .state('app.calendar', {
-            url: '/calendar',
-            views: {
-                content: {
-                    templateUrl: 'app/calendar/views/calendar.tpl.html'
-                }
-            },
-            data:{
-                title: 'Calendar'
-            }
-        });
+  $stateProvider
+  .state('app.calendar', {
+    url: '/calendar',
+    views: {
+      content: {
+        template: require('./views/calendar.tpl.html')
+      }
+    },
+    data:{
+      title: 'Calendar'
+    }
+  });
 });
 
+require('./controllers/CalendarCtrl')(app);
+require('./models/CalendarEvent')(app);
+require('./directives/dragableEvent')(app);
+require('./directives/fullCalendar')(app);
+
+export default MODULE_NAME;
 

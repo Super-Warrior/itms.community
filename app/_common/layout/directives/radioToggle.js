@@ -5,18 +5,22 @@
 * Source: https://gist.github.com/aeife/9374784
 */
 
-angular.module('SmartAdmin.Layout').directive('radioToggle', function ($log) {
+export default (app) => {
+  app.directive('radioToggle', function ($log) {
     return {
-        scope: {
-            model: "=ngModel",
-            value: "@value"
-        },
-        link: function(scope, element, attrs) {
+      scope: {
+        model: "=ngModel",
+        value: "@value"
+      },
+      link: function(scope, element, attrs) {
 
-            element.parent().on('click', function() {
-                scope.model = scope.value;
-                scope.$apply();
-            });
-        }
+        element.parent().on('click', function() {
+          scope.model = scope.value;
+          scope.$apply();
+        });
+      }
     }
-});
+  });
+
+}
+

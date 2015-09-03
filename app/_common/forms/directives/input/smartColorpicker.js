@@ -1,17 +1,20 @@
 'use strict';
 
-angular.module('SmartAdmin.Forms').directive('smartColorpicker', function () {
+export default (app) => {
+  app.directive('smartColorpicker', function () {
     return {
-        restrict: 'A',
-        compile: function (tElement, tAttributes) {
-            tElement.removeAttr('smart-colorpicker data-smart-colorpicker');
+      restrict: 'A',
+      compile: function (tElement, tAttributes) {
+        tElement.removeAttr('smart-colorpicker data-smart-colorpicker');
 
 
-            var aOptions = _.pick(tAttributes, ['']);
+        var aOptions = _.pick(tAttributes, ['']);
 
-            var options = _.extend(aOptions, {});
+        var options = _.extend(aOptions, {});
 
-            tElement.colorpicker(options);
-        }
+        tElement.colorpicker(options);
+      }
     }
-});
+  });
+}
+

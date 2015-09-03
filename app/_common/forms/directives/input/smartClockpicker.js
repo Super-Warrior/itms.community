@@ -1,17 +1,20 @@
 'use strict';
 
-angular.module('SmartAdmin.Forms').directive('smartClockpicker', function () {
+export default (app) => {
+  app.directive('smartClockpicker', function () {
     return {
-        restrict: 'A',
-        compile: function (tElement, tAttributes) {
-            tElement.removeAttr('smart-clockpicker data-smart-clockpicker');
+      restrict: 'A',
+      compile: function (tElement, tAttributes) {
+        tElement.removeAttr('smart-clockpicker data-smart-clockpicker');
 
-            var options = {
-                placement: 'top',
-                donetext: 'Done'
-            }
-
-            tElement.clockpicker(options);
+        var options = {
+          placement: 'top',
+          donetext: 'Done'
         }
+
+        tElement.clockpicker(options);
+      }
     }
-});
+  });
+}
+

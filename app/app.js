@@ -9,32 +9,49 @@
  * Main module of the application.
  */
 
+import appConfig from '../app.config';
+import angular from 'angular';
+import ngAnimate from 'angular-animate';
+import ngResource from 'angular-resource';
+import 'imports?angular!restangular/src/restangular';
+import 'angular-bootstrap';
+import uirouter from 'angular-ui-router';
+import SmartAdmin from './_common/module';
+import auth from './auth/module';
+import dashboard from './dashboard/module';
+import layout from './layout/module';
+import calendar from './calendar/module';
+import graphs from './graphs/module';
+import 'jquery-ui/sortable';
+import 'jquery-ui/tooltip';
+
 angular.module('app', [
     //'ngSanitize',
-    'ngAnimate',
+    ngAnimate,
+    uirouter,
+    ngResource,
     'restangular',
-    'ui.router',
     'ui.bootstrap',
 
     // Smartadmin Angular Common Module
-    'SmartAdmin',
+    SmartAdmin,
 
     // App
-    'app.auth',
-    'app.layout',
-    'app.chat',
-    'app.dashboard',
-    'app.calendar',
-    'app.inbox',
-    'app.graphs',
-    'app.tables',
-    'app.forms',
-    'app.ui',
-    'app.widgets',
-    'app.maps',
-    'app.appViews',
-    'app.misc',
-    'app.smartAdmin'
+    auth,
+    layout,
+    calendar,
+    dashboard,
+    graphs
+    //'app.chat',
+    //'app.inbox',
+    //'app.tables',
+    //'app.forms',
+    //'app.ui',
+    //'app.widgets',
+    //'app.maps',
+    //'app.appViews',
+    //'app.misc',
+    //'app.smartAdmin'
 ])
 .config(function ($provide, $httpProvider) {
 
@@ -44,14 +61,14 @@ angular.module('app', [
         var errorCounter = 0;
         function notifyError(rejection){
             console.log(rejection);
-            $.bigBox({
-                title: rejection.status + ' ' + rejection.statusText,
-                content: rejection.data,
-                color: "#C46A69",
-                icon: "fa fa-warning shake animated",
-                number: ++errorCounter,
-                timeout: 6000
-            });
+            //$.bigBox({
+                //title: rejection.status + ' ' + rejection.statusText,
+                //content: rejection.data,
+                //color: "#C46A69",
+                //icon: "fa fa-warning shake animated",
+                //number: ++errorCounter,
+                //timeout: 6000
+            //});
         }
 
         return {
@@ -78,8 +95,7 @@ angular.module('app', [
     $httpProvider.interceptors.push('ErrorHttpInterceptor');
 
 })
-.constant('APP_CONFIG', window.appConfig)
-
+.constant('APP_CONFIG', appConfig)
 .run(function ($rootScope
     , $state, $stateParams
     ) {

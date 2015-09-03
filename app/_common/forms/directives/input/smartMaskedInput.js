@@ -1,17 +1,20 @@
 "use strict";
 
-angular.module('SmartAdmin.Forms').directive('smartMaskedInput', function(lazyScript){
+export default (app) => {
+  app.directive('smartMaskedInput', function(lazyScript){
     return {
-        restrict: 'A',
-        compile: function(tElement, tAttributes){
-            tElement.removeAttr('smart-masked-input data-smart-masked-input');
+      restrict: 'A',
+      compile: function(tElement, tAttributes){
+        tElement.removeAttr('smart-masked-input data-smart-masked-input');
 
-        	lazyScript.register('jquery-maskedinput').then(function(){
+        lazyScript.register('jquery-maskedinput').then(function(){
 
-	            var options = {};
-	            if(tAttributes.maskPlaceholder) options.placeholder =  tAttributes.maskPlaceholder;
-	            tElement.mask(tAttributes.smartMaskedInput, options);
-        	})	            
-        }
+          var options = {};
+          if(tAttributes.maskPlaceholder) options.placeholder =  tAttributes.maskPlaceholder;
+          tElement.mask(tAttributes.smartMaskedInput, options);
+        })	            
+      }
     }
-});
+  });
+}
+

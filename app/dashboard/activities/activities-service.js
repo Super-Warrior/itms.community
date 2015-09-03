@@ -1,43 +1,46 @@
 "use strict";
 
-angular.module('app').factory('activityService', function($http, $log, APP_CONFIG) {
+export default (app) => {
+  app.factory('activityService', function($http, $log, APP_CONFIG) {
 
-	function getActivities(callback){
+    function getActivities(callback){
 
-		$http.get(APP_CONFIG.apiRootUrl + '/activities/activity.json').success(function(data){
+      $http.get(APP_CONFIG.apiRootUrl + '/activities/activity.json').success(function(data){
 
-			callback(data);
-				
-		}).error(function(){
+        callback(data);
 
-			$log.log('Error');
-			callback([]);
+      }).error(function(){
 
-		});
+        $log.log('Error');
+        callback([]);
 
-	}
+      });
 
-	function getActivitiesByType(type, callback){
+    }
 
-		$http.get(APP_CONFIG.apiRootUrl + '/activities/activity-' + type + '.json').success(function(data){
+    function getActivitiesByType(type, callback){
 
-			callback(data);
-				
-		}).error(function(){
+      $http.get(APP_CONFIG.apiRootUrl + '/activities/activity-' + type + '.json').success(function(data){
 
-			$log.log('Error');
-			callback([]);
+        callback(data);
 
-		});
+      }).error(function(){
 
-	}
-	
-	return{
-		get:function(callback){
-			getActivities(callback);
-		},
-		getbytype:function(type,callback){
-			getActivitiesByType(type, callback);
-		}
-	}
-});
+        $log.log('Error');
+        callback([]);
+
+      });
+
+    }
+
+    return{
+      get:function(callback){
+        getActivities(callback);
+      },
+      getbytype:function(type,callback){
+        getActivitiesByType(type, callback);
+      }
+    }
+  });
+}
+

@@ -1,4 +1,3 @@
-    "use strict";
 
 
 angular.module('app.chat', ['ngSanitize'])
@@ -20,3 +19,4 @@ angular.module('app.chat', ['ngSanitize'])
         return $sce.trustAsHtml(val);
     };
 }]);
+

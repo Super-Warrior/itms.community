@@ -1,17 +1,19 @@
 "use strict";
 
 
-angular.module('SmartAdmin.Forms').directive('bootstrapAttributeForm', function(){
+export default (app) => {
+
+  app.directive('bootstrapAttributeForm', () => {
 
     return {
-        restrict: 'E',
-        replace: true,
-        templateUrl: 'app/_common/forms/directives/bootstrap-validation/bootstrap-attribute-form.tpl.html',
-        link: function(scope, form){
-            form.bootstrapValidator();
-
-
-        }
-
+      restrict: 'E',
+      replace: true,
+      template: require('./bootstrap-attribute-form.tpl.html'),
+      link: function(scope, form){
+        form.bootstrapValidator();
+      }
     }
-});
+  });
+
+}
+
