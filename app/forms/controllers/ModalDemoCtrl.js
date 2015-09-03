@@ -1,7 +1,10 @@
 'use strict'
 
-angular.module('app.forms').controller('ModalDemoCtrl', function($scope, $modalInstance){
+export default (app) => {
+  app.controller('ModalDemoCtrl', function($scope, $modalInstance){
     $scope.closeModal = function(){
-        $modalInstance.dismiss('cancel');
+      $modalInstance.dismiss('cancel');
     }
-});
+  });
+}
+

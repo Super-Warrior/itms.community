@@ -29,85 +29,86 @@ import widgets from './widgets/module';
 import inbox from './inbox/module';
 import appView from './app-views/module';
 import tables from './tables/module';
+import forms from './forms/module';
 
 angular.module('app', [
-    //'ngSanitize',
-    ngAnimate,
-    uirouter,
-    ngResource,
-    'restangular',
-    'ui.bootstrap',
+  //'ngSanitize',
+  ngAnimate,
+  uirouter,
+  ngResource,
+  'restangular',
+  'ui.bootstrap',
 
-    // Smartadmin Angular Common Module
-    SmartAdmin,
+  // Smartadmin Angular Common Module
+  SmartAdmin,
 
-    // App
-    auth,
-    layout,
-    calendar,
-    dashboard,
-    graphs,
-    widgets,
-    inbox,
-    appView,
-    tables
-    //'app.chat',
-    //'app.forms',
-    //'app.ui',
-    //'app.maps',
-    //'app.misc',
-    //'app.smartAdmin'
+  // App
+  auth,
+  layout,
+  calendar,
+  dashboard,
+  graphs,
+  widgets,
+  inbox,
+  appView,
+  tables,
+  forms
+  //'app.chat',
+  //'app.ui',
+  //'app.maps',
+  //'app.misc',
+  //'app.smartAdmin'
 ])
 .config(function ($provide, $httpProvider) {
 
 
-    // Intercept http calls.
-    $provide.factory('ErrorHttpInterceptor', function ($q) {
-        var errorCounter = 0;
-        function notifyError(rejection){
-            console.log(rejection);
-            //$.bigBox({
-                //title: rejection.status + ' ' + rejection.statusText,
-                //content: rejection.data,
-                //color: "#C46A69",
-                //icon: "fa fa-warning shake animated",
-                //number: ++errorCounter,
-                //timeout: 6000
-            //});
-        }
+  // Intercept http calls.
+  $provide.factory('ErrorHttpInterceptor', function ($q) {
+    var errorCounter = 0;
+    function notifyError(rejection){
+      console.log(rejection);
+      //$.bigBox({
+      //title: rejection.status + ' ' + rejection.statusText,
+      //content: rejection.data,
+      //color: "#C46A69",
+      //icon: "fa fa-warning shake animated",
+      //number: ++errorCounter,
+      //timeout: 6000
+      //});
+    }
 
-        return {
-            // On request failure
-            requestError: function (rejection) {
-                // show notification
-                notifyError(rejection);
+    return {
+      // On request failure
+      requestError: function (rejection) {
+        // show notification
+        notifyError(rejection);
 
-                // Return the promise rejection.
-                return $q.reject(rejection);
-            },
+        // Return the promise rejection.
+        return $q.reject(rejection);
+      },
 
-            // On response failure
-            responseError: function (rejection) {
-                // show notification
-                notifyError(rejection);
-                // Return the promise rejection.
-                return $q.reject(rejection);
-            }
-        };
-    });
+      // On response failure
+      responseError: function (rejection) {
+        // show notification
+        notifyError(rejection);
+        // Return the promise rejection.
+        return $q.reject(rejection);
+      }
+    };
+  });
 
-    // Add the interceptor to the $httpProvider.
-    $httpProvider.interceptors.push('ErrorHttpInterceptor');
+  // Add the interceptor to the $httpProvider.
+  $httpProvider.interceptors.push('ErrorHttpInterceptor');
 
 })
 .constant('APP_CONFIG', appConfig)
 .run(function ($rootScope
     , $state, $stateParams
-    ) {
-    $rootScope.$state = $state;
-    $rootScope.$stateParams = $stateParams;
-    // editableOptions.theme = 'bs3';
+              ) {
+                $rootScope.$state = $state;
+                $rootScope.$stateParams = $stateParams;
+                // editableOptions.theme = 'bs3';
 
-});
+              });
 
 
