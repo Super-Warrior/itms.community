@@ -1,20 +1,24 @@
 'use strict';
 
-angular.module('SmartAdmin.Layout').directive('searchMobile', function () {
+export default (app) => {
+
+  app.directive('searchMobile', function () {
     return {
-        restrict: 'A',
-        compile: function (element, attributes) {
-            element.removeAttr('search-mobile data-search-mobile');
+      restrict: 'A',
+      compile: function (element, attributes) {
+        element.removeAttr('search-mobile data-search-mobile');
 
-            element.on('click', function (e) {
-                $('body').addClass('search-mobile');
-                e.preventDefault();
-            });
+        element.on('click', function (e) {
+          $('body').addClass('search-mobile');
+          e.preventDefault();
+        });
 
-            $('#cancel-search-js').on('click', function (e) {
-                $('body').removeClass('search-mobile');
-                e.preventDefault();
-            });
-        }
+        $('#cancel-search-js').on('click', function (e) {
+          $('body').removeClass('search-mobile');
+          e.preventDefault();
+        });
+      }
     }
-});
+  });
+}
+

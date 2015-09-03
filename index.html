@@ -97,14 +97,18 @@
 
 	-->
 
-	<body data-smart-device-detect
+	<body 
+    data-smart-device-detect
 		data-smart-fast-click
 		data-smart-layout
 		data-smart-page-title="SmartAdmin AngularJS">
 
 		<!-- ui-view container -->
 
-		<div data-ui-view="root"  data-autoscroll="false"></div>
+		<div 
+      data-ui-view="root"  
+      data-autoscroll="false">
+    </div>
 
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -116,9 +120,11 @@
 		<![endif]-->
 
 		<!-- Use for production after building the project with grunt --> 
-		<script src="build/vendor.js"></script>		
-		<script src="build/app.js"></script>
-
+    <script src="plugin/jquery/dist/jquery.min.js"></script>
+    <script src="plugin/jquery-ui/jquery-ui.min.js"></script>
+    <script src="smartadmin-plugin/smartwidgets/jarvis.widget.min.js"></script>
+		<script src="public/assets/vendor.js"></script>		
+		<script src="public/assets/app.js"></script>	
 
 		</body>
 	

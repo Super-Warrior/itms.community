@@ -1,5 +1,10 @@
-(function(){
-    "use strict";
+import angular from 'angular';
+import initDirectives from './directives';
 
-    angular.module('SmartAdmin.Forms', []);
-})();
+const MODULE_NAME = 'SmartAdmin.Forms';
+
+const app = angular.module(MODULE_NAME, []);
+initDirectives(app);
+
+export default MODULE_NAME;
+

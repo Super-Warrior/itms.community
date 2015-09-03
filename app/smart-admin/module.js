@@ -1,40 +1,41 @@
-"use strict";
+import angular from 'angular';
+const MODULE_NAME = 'app.smartAdmin';
 
+export default MODULE_NAME;
 
-angular.module('app.smartAdmin', ['ui.router']);
+const app = angular.module(MODULE_NAME, [])
+.config(function ($stateProvider) {
 
+  $stateProvider
+  .state('app.smartAdmin', {
+    abstract: true,
+    data: {
+      title: 'SmartAdmin Intel'
+    }
+  })
 
-angular.module('app.smartAdmin').config(function ($stateProvider) {
+  .state('app.smartAdmin.appLayout', {
+    url: '/app-layout',
+    data: {
+      title: 'App Layout'
+    },
+    views: {
+      "content@app": {
+        template: require('./views/app-layout.html')
+      }
+    }
+  })
 
-    $stateProvider
-        .state('app.smartAdmin', {
-            abstract: true,
-            data: {
-                title: 'SmartAdmin Intel'
-            }
-        })
-
-        .state('app.smartAdmin.appLayout', {
-            url: '/app-layout',
-            data: {
-                title: 'App Layout'
-            },
-            views: {
-                "content@app": {
-                    templateUrl: 'app/smart-admin/views/app-layout.html'
-                }
-            }
-        })
-
-        .state('app.smartAdmin.diffVer', {
-            url: '/different-versions',
-            data: {
-                title: 'Different Versions'
-            },
-            views: {
-                "content@app": {
-                    templateUrl: 'app/smart-admin/views/different-versions.html'
-                }
-            }
-        })
+  .state('app.smartAdmin.diffVer', {
+    url: '/different-versions',
+    data: {
+      title: 'Different Versions'
+    },
+    views: {
+      "content@app": {
+        template: require('./views/different-versions.html')
+      }
+    }
+  })
 });
+

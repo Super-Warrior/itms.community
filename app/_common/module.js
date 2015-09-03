@@ -1,8 +1,13 @@
-(function(){
-    "use strict";
+import angular from 'angular';
+import Forms from './forms/module';
+import Layout from './layout/module';
 
-    angular.module('SmartAdmin', [
-        "SmartAdmin.Forms",
-        "SmartAdmin.Layout"
-    ]);
-})();
+const MODULE_NAME = 'SmartAdmin';
+
+angular.module(MODULE_NAME, [
+  Forms,
+  Layout
+]);
+
+export default MODULE_NAME;
+

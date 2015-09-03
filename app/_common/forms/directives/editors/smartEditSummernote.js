@@ -1,15 +1,17 @@
-'use strict';
+import angular from 'angular';
 
-angular.module('SmartAdmin.Forms').directive('smartEditSummernote', function () {
+export default (app)=>{
+  app.directive('smartEditSummernote', function () {
     return {
-        restrict: 'A',
-        compile: function (tElement, tAttributes) {
-            tElement.removeAttr('smart-edit-summernote data-smart-edit-summernote');
-            tElement.on('click', function(){
-                angular.element(tAttributes.smartEditSummernote).summernote({
-                    focus : true
-                });  
-            });
-        }
+      restrict: 'A',
+      compile: function (tElement, tAttributes) {
+        tElement.removeAttr('smart-edit-summernote data-smart-edit-summernote');
+        tElement.on('click', function(){
+          angular.element(tAttributes.smartEditSummernote).summernote({
+            focus : true
+          });  
+        });
+      }
     }
-});
+  });
+}

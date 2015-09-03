@@ -1,5 +1,14 @@
-(function(){
-    "use strict";
+import angular from 'angular';
+import initDirectives from './directives';
+import initAction from './actions';
+import initService from './service';
 
-    angular.module('SmartAdmin.Layout', []);
-})();
+const MODULE_NAME = 'SmartAdmin.Layout';
+
+const app = angular.module(MODULE_NAME, []);
+initDirectives(app);
+initAction(app);
+initService(app);
+
+export default MODULE_NAME;
+

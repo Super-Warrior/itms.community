@@ -12,19 +12,21 @@
  *
  */
 
+import FastClick from 'fastclick';
 
-'use strict';
+export default (app) => {
 
-angular.module('SmartAdmin.Layout').directive('smartFastClick', function () {
+  app.directive('smartFastClick', function () {
     return {
-        restrict: 'A',
-        compile: function (tElement, tAttributes) {
-            tElement.removeAttr('smart-fast-click data-smart-fast-click');
+      restrict: 'A',
+      compile: function (tElement, tAttributes) {
+        tElement.removeAttr('smart-fast-click data-smart-fast-click');
 
-            FastClick.attach(tElement);
+        FastClick.attach(tElement);
 
-            if(!FastClick.notNeeded())
-                tElement.addClass('needsclick')
-        }
+        if(!FastClick.notNeeded())
+          tElement.addClass('needsclick')
+      }
     }
-});
+  });
+}

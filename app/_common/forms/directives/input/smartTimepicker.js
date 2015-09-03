@@ -1,11 +1,15 @@
 'use strict';
 
-angular.module('SmartAdmin.Forms').directive('smartTimepicker', function () {
+export default (app) => {
+  app.directive('smartTimepicker', function () {
     return {
-        restrict: 'A',
-        compile: function (tElement, tAttributes) {
-            tElement.removeAttr('smart-timepicker data-smart-timepicker');
-            tElement.timepicker();
-        }
+      restrict: 'A',
+      compile: function (tElement, tAttributes) {
+        tElement.removeAttr('smart-timepicker data-smart-timepicker');
+        tElement.timepicker();
+      }
     }
-});
+  });
+
+}
+

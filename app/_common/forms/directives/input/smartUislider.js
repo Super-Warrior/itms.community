@@ -1,18 +1,22 @@
 'use strict';
 
-angular.module('SmartAdmin.Forms').directive('smartUislider', function ($parse, lazyScript) {
+export default (app) => {
+  app.directive('smartUislider', function ($parse, lazyScript) {
     return {
-        restrict: 'A',
-        compile: function (tElement, tAttributes) {
+      restrict: 'A',
+      compile: function (tElement, tAttributes) {
 
-            tElement.removeAttr('smart-uislider data-smart-uislider');
+        tElement.removeAttr('smart-uislider data-smart-uislider');
 
-            lazyScript.register('bootstrap-slider').then(function(){
-			    tElement.bootstrapSlider();
+        lazyScript.register('bootstrap-slider').then(function(){
+          tElement.bootstrapSlider();
 
-			    $(tElement.data('bootstrapSlider').sliderElem).prepend(tElement);      	
-            })
+          $(tElement.data('bootstrapSlider').sliderElem).prepend(tElement);      	
+        })
 
-        }
+      }
     }
-});
+  });
+
+}
+

@@ -1,14 +1,18 @@
 "use strict";
 
-angular.module('app.auth').directive('loginInfo', function(User){
+export default (app) => {
+  app.directive('loginInfo', function(User){
 
     return {
-        restrict: 'A',
-        templateUrl: 'app/auth/directives/login-info.tpl.html',
-        link: function(scope, element){
-            User.initialized.then(function(){
-                scope.user = User
-            });
-        }
+      restrict: 'A',
+      template: require('./login-info.tpl.html'),
+      link: function(scope, element){
+        User.initialized.then(function(){
+          scope.user = User
+        });
+      }
     }
-})
+  })
+
+}
+
