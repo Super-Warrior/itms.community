@@ -1,5 +1,5 @@
 import angular from 'angular';
-const MODULE_NAME = 'app.auth';
+const MODULE_NAME = 'app.projects';
 
 const app = angular.module(MODULE_NAME, [])
 .config(function ($stateProvider) {

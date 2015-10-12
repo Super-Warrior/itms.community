@@ -1,0 +1,135 @@
+﻿/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+
+.shuffle.ng-enter {
+   position: relative;
+   -webkit-transition: 3.8 linear all;
+   transition: 3.8 linear all;
+   opacity: 0;
+}
+
+   .shuffle.ng-enter.ng-enter-active {
+      opacity: 1;
+   }
+
+.shuffle.ng-leave {
+   position: relative;
+   -webkit-transition: 3.8 linear all;
+   transition: 3.8 linear all;
+   opacity: 1;
+}
+
+   .shuffle.ng-leave.ng-leave-active {
+      opacity: 0;
+   }
+
+.fader.ng-enter {
+   -webkit-transition: linear all 0.3;
+   -moz-transition: linear all 0.3;
+   -o-transition: linear all 0.3;
+   transition: linear all 0.3;
+   position: relative;
+   opacity: 0;
+}
+
+   .fader.ng-enter.ng-enter-active {
+      opacity: 1;
+   }
+
+.fader.ng-leave {
+   -webkit-transition: linear all 0.3;
+   -moz-transition: linear all 0.3;
+   -o-transition: linear all 0.3;
+   transition: linear all 0.3;
+   position: relative;
+   opacity: 1;
+}
+
+   .fader.ng-leave.ng-leave-active {
+      opacity: 0;
+   }
+
+.fader.ng-move {
+   -webkit-transition: linear all 0.3;
+   -moz-transition: linear all 0.3;
+   -o-transition: linear all 0.3;
+   transition: linear all 0.3;
+   position: relative;
+   opacity: 0.5;
+}
+
+   .fader.ng-move.ng-move-active {
+      opacity: 1;
+   }
+
+body {
+   font-size: 14px;
+   font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+}
+
+.nav a {
+   display: block;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+.table tr {
+   cursor: pointer;
+}
+
+.timeline-window .modal-content,
+.erDetail-window .modal-content,
+.eoDetail-window .modal-content {
+   width: 800px;
+   min-height: 600px;
+}
+
+.erDetail-window .modal-content {
+   width: 800px;
+}
+
+.fa-resize-full:before {
+   content: "\f065";
+}
+
+.fa-resize-small:before:before {
+   content: "\f066";
+}
+
+.fa-expand-o:before {
+   content: "\f116";
+}
+
+.fa-collapse-o:before {
+   content: "\f117";
+}
+
+.col-centered {
+   float: none;
+   margin: 0 auto;
+}
+
+nav a {
+   cursor: pointer;
+}
+
+.login {
+   margin-top: 45px;
+}
