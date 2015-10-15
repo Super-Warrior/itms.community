@@ -1,22 +1,26 @@
-"use strict";
-
-angular.module('app.auth').controller('LoginCtrl', function ($scope, $state, GooglePlus, User, ezfb) {
-
-    $scope.$on('event:google-plus-signin-success', function (event, authResult) {
-        if (authResult.status.method == 'PROMPT') {
-            GooglePlus.getUser().then(function (user) {
-                User.username = user.name;
-                User.picture = user.picture;
-                $state.go('app.dashboard');
-            });
-        }
-    });
-
-    $scope.$on('event:facebook-signin-success', function (event, authResult) {
-        ezfb.api('/me', function (res) {
-            User.username = res.name;
-            User.picture = 'https://graph.facebook.com/' + res.id + '/picture';
-            $state.go('app.dashboard');
+﻿"use strict";
+const LoginCtrl = function ($scope, $state, auth, common) {
+   $scope.username = '';
+   $scope.password = '';
+   $scope.logon = function (username, password) {
+      auth
+        .logon(username, password)
+        .then(function (isLoggedin) {
+           if (isLoggedin.success) {
+              auth
+                .getAuth(isLoggedin.result.userID)
+                .then(function (result) {
+                   if (result.success) {
+                      $state.go('app.dashboard');
+                   }
+                });
+           } else {
+              common.notifier.cancel(isLoggedin.message === 'NO_USER' ? '用户不存在' : '密码错误');
+           }
         });
-    });
-})
+   }
+}
+
+export default (app) => {
+   app.controller('LoginCtrl', ['$scope', '$state', 'auth', 'common', LoginCtrl]);
+}

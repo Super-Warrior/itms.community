@@ -1,12 +1,10 @@
-import angular from 'angular';
+﻿import angular from 'angular';
 
 const MODULE_NAME = 'app.auth';
-const
-app = angular.module(MODULE_NAME, [])
+const app = angular.module(MODULE_NAME, [])
    .config(function($stateProvider) {
-      $stateProvider.state('realLogin', {
-         url: '/real-login',
-
+      $stateProvider.state('login', {
+         url: '/login',
          views: {
             root: {
                template: require('./login/login.html'),
@@ -14,30 +12,18 @@ app = angular.module(MODULE_NAME, [])
             }
          },
          data: {
-            title: 'Login',
-            rootId: 'extra-page'
+            title: '登录',
+            htmlId: 'extr-page'
+         },
+         resolve: {
+            srcipts: function(lazyScript) {
+               return lazyScript.register([
+                  'jquery-validation'
+               ])
+
+            }
          }
       })
-         .state('login', {
-            url: '/login',
-            views: {
-               root: {
-                  template: require('./views/login.html')
-               }
-            },
-            data: {
-               title: 'Login',
-               htmlId: 'extr-page'
-            },
-            resolve: {
-               srcipts: function(lazyScript) {
-                  return lazyScript.register([
-                     'jquery-validation'
-                  ])
-
-               }
-            }
-         })
          .state('register', {
             url: '/register',
             views: {
@@ -77,6 +63,7 @@ app = angular.module(MODULE_NAME, [])
    });
 
 require('./models/User')(app);
-
+require('./auth.svc')(app);
+require('./login/LoginCtrl')(app);
 export default MODULE_NAME;
 

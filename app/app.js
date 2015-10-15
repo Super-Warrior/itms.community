@@ -34,7 +34,7 @@ import misc from './misc/module';
 import admin from './smart-admin/module';
 import ui from './ui/module';
 
-angular.module('app', [
+const app= angular.module('app', [
   //'ngSanitize',
   ngAnimate,
   uirouter,
@@ -61,8 +61,11 @@ angular.module('app', [
   ui
   //'app.chat',
   //'app.maps',
-])
-.config(function ($provide, $httpProvider) {
+]);
+
+
+
+app.config(function ($provide, $httpProvider) {
 
   // Intercept http calls.
   $provide.factory('ErrorHttpInterceptor', function ($q) {
@@ -114,3 +117,4 @@ angular.module('app', [
               });
 
 
+require('./common')(app);

@@ -1,45 +1,53 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 text-center animated fadeInDown">
-            <div>
-                <h1 class="logo-name">My Orange</h1>
-            </div>
-            <h3>Welcome to My Orange</h3>
+<header id="header">
+   <div id="logo-group">
+      <span id="logo">
+         <img src="styles/img/banner.png" alt="iTMS Platform">
+      </span>
+   </div>
+</header>
 
-            <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
-            </p>
+<div id="content" class="container login">
+   <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-centered">
+         <div class="well no-padding">
+            <form id="login-form" class="smart-form client-form">
+               <header>
+                  登录
+               </header>
 
-            <p>Login in. To see it in action.</p>
+               <fieldset>
+                  <section>
+                     <label class="label">电子邮件</label>
+                     <label class="input">
+                        <i class="icon-append fa fa-user"></i>
+                        <input type="text" name="username" data-ng-model="username">
+                        <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>&nbsp;输入注册邮箱/用户名</b></label>
+                  </section>
+                  <section>
+                     <label class="label">密码</label>
+                     <label class="input">
+                        <i class="icon-append fa fa-lock"></i>
+                        <input type="password" name="password" data-ng-model="password">
+                        <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i>&nbsp;输入密码</b>
+                     </label>
 
-            <form class="m-t" role="form" action="#">
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Username" required="">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required="">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block m-b">Login</button>
-
-                <a ui-sref="account.forgot">
-                    <small>Forgot password?</small>
-                </a>
-
-                <p class="text-muted text-center">
-                    <small>Do not have an account?</small>
-                </p>
-                <a class="btn btn-sm btn-white btn-block" ui-sref="account.register">Create an account</a>
-
-                <br/>
-
-                <google-signin></google-signin>
-
-                <facebook-signin></facebook-signin>
-
-                <br/>
+                     <div class="note">
+                        <a href="javascript:void(0)">忘记密码？</a>
+                     </div>
+                  </section>
+                  <section>
+                     <label class="checkbox">
+                        <input type="checkbox" name="remember" checked="checked">
+                        <i></i>记住我</label>
+                  </section>
+               </fieldset>
+               <footer>
+                  <button ng-click="logon(username,password)" class="btn btn-primary">
+                     登录
+                  </button>
+               </footer>
             </form>
-            <p class="m-t">
-                <small>My Orange app framework base on Bootstrap 3 © 2014</small>
-            </p>
-        </div>
-    </div>
+         </div>
+      </div>
+   </div>
 </div>

@@ -1,8 +1,7 @@
 import angular from 'angular';
 const MODULE_NAME = 'app.dashboard';
 
-const
-app = angular.module(MODULE_NAME, [])
+const app = angular.module(MODULE_NAME, [])
    .config(function($stateProvider) {
       $stateProvider
          .state('app.dashboard', {
